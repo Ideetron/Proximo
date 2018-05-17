@@ -3,8 +3,7 @@ Output/Proximo\ Debug/Obj/boards.o: \
  D:\localrep\Proximo\nRF5_SDK_15.0.0\components\boards\boards.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_gpio.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/nrfx.h \
- ../nRF5_SDK_15.0.0/integration/nrfx/nrfx_config.h \
- ../Proximo_app/sdk_config.h \
+ ../nRF5_SDK_15.0.0/integration/nrfx/nrfx_config.h config/sdk_config.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/drivers/nrfx_common.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/stdint.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/stddef.h \
@@ -50,4 +49,4 @@ Output/Proximo\ Debug/Obj/boards.o: \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_resources.h \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_sd_def.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/drivers/nrfx_errors.h \
- D:\localrep\Proximo\nRF5_SDK_15.0.0\components\boards\pca10040.h
+ Board/proximo_board.h

@@ -1,6 +1,6 @@
 Output/Proximo\ Debug/Obj/nrf_fstorage.o: \
  D:\localrep\Proximo\nRF5_SDK_15.0.0\components\libraries\fstorage\nrf_fstorage.c \
- ../Proximo_app/sdk_config.h \
+ config/sdk_config.h \
  D:\localrep\Proximo\nRF5_SDK_15.0.0\components\libraries\fstorage\nrf_fstorage.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/stdint.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/stdbool.h \

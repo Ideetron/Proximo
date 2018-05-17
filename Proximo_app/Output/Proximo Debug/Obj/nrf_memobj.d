@@ -7,7 +7,7 @@ Output/Proximo\ Debug/Obj/nrf_memobj.o: \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_errors.h \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_error.h \
  ../nRF5_SDK_15.0.0/components/libraries/balloc/nrf_balloc.h \
- ../Proximo_app/sdk_config.h \
+ config/sdk_config.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/app_util_platform.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/mdk/compiler_abstraction.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/mdk/nrf.h \

@@ -32,6 +32,6 @@ Output/Proximo\ Debug/Obj/SEGGER_RTT_printf.o: \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_error.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/nordic_common.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/app_error_weak.h \
- ../Proximo_app/sdk_config.h \
+ config/sdk_config.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/stdlib.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/stdarg.h

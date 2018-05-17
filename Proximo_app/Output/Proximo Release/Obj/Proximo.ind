@@ -35,6 +35,7 @@
 "Output/Proximo Release/Obj/ses_nrf52_Vectors.o"
 "Output/Proximo Release/Obj/system_nrf52.o"
 "Output/Proximo Release/Obj/boards.o"
+"Output/Proximo Release/Obj/proximo_board.o"
 "Output/Proximo Release/Obj/nrf_drv_clock.o"
 "Output/Proximo Release/Obj/nrf_drv_uart.o"
 "Output/Proximo Release/Obj/nrfx_clock.o"

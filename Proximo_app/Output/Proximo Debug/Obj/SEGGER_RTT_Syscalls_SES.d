@@ -1,6 +1,6 @@
 Output/Proximo\ Debug/Obj/SEGGER_RTT_Syscalls_SES.o: \
  D:\localrep\Proximo\nRF5_SDK_15.0.0\external\segger_rtt\SEGGER_RTT_Syscalls_SES.c \
- ../Proximo_app/sdk_config.h \
+ config/sdk_config.h \
  D:\localrep\Proximo\nRF5_SDK_15.0.0\external\segger_rtt\SEGGER_RTT.h \
  D:\localrep\Proximo\nRF5_SDK_15.0.0\external\segger_rtt\SEGGER_RTT_Conf.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/nordic_common.h \

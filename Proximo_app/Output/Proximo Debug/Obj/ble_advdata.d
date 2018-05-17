@@ -30,7 +30,7 @@ Output/Proximo\ Debug/Obj/ble_advdata.o: \
  ../nRF5_SDK_15.0.0/modules/nrfx/mdk/compiler_abstraction.h \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/ble_gatts.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_common.h \
- ../Proximo_app/sdk_config.h \
+ config/sdk_config.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/nordic_common.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/mdk/compiler_abstraction.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_os.h \

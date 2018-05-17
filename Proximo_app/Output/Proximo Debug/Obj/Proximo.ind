@@ -35,6 +35,7 @@
 "Output/Proximo Debug/Obj/ses_nrf52_Vectors.o"
 "Output/Proximo Debug/Obj/system_nrf52.o"
 "Output/Proximo Debug/Obj/boards.o"
+"Output/Proximo Debug/Obj/proximo_board.o"
 "Output/Proximo Debug/Obj/nrf_drv_clock.o"
 "Output/Proximo Debug/Obj/nrf_drv_uart.o"
 "Output/Proximo Debug/Obj/nrfx_clock.o"

@@ -24,7 +24,7 @@ Output/Proximo\ Debug/Obj/app_error_weak.o: \
  ../nRF5_SDK_15.0.0/components/libraries/experimental_log/nrf_log.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_common.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/string.h \
- ../Proximo_app/sdk_config.h \
+ config/sdk_config.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/nordic_common.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/mdk/compiler_abstraction.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_os.h \

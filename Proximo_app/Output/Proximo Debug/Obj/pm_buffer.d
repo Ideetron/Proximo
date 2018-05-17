@@ -5,7 +5,7 @@ Output/Proximo\ Debug/Obj/pm_buffer.o: \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/stdbool.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/string.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 3.34b/include/__crossworks.h \
- ../Proximo_app/sdk_config.h \
+ config/sdk_config.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/nordic_common.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/mdk/compiler_abstraction.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_os.h \

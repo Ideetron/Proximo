@@ -21,7 +21,7 @@ Output/Proximo\ Debug/Obj/nrf_atfifo.o: \
  ../nRF5_SDK_15.0.0/modules/nrfx/mdk/nrf52_name_change.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/mdk/compiler_abstraction.h \
  D:\localrep\Proximo\nRF5_SDK_15.0.0\components\libraries\atomic_fifo\nrf_atfifo.h \
- ../Proximo_app/sdk_config.h \
+ config/sdk_config.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/nordic_common.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/nrf_assert.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_errors.h \

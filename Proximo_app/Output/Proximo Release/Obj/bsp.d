@@ -50,7 +50,7 @@ Output/Proximo\ Release/Obj/bsp.o: \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_resources.h \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_sd_def.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/drivers/nrfx_errors.h \
- ../nRF5_SDK_15.0.0/components/boards/pca10040.h \
+ Board/proximo_board.h \
  ../nRF5_SDK_15.0.0/components/libraries/button/app_button.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/app_error.h \
  D:\localrep\Proximo\nRF5_SDK_15.0.0\components\libraries\bsp\bsp_config.h \
