@@ -12,6 +12,7 @@ extern "C" {
 #endif
 
 #include "nrf_gpio.h"
+#include "nrf_drv_lpcomp.h"
 
 // LEDs definitions for Proximo
 #define LEDS_NUMBER    0
@@ -67,6 +68,9 @@ extern "C" {
 #define SK6812_GREY     0x80, 0x80, 0x80
 
           void proximo_io_init  (void);
+
+          void movement_init    (void (*movement_event_handler)(nrf_lpcomp_event_t));
+          void movement_deinit  (void);
 
 //__inline  void proximo_din_high (void);
 //__inline  void proximo_din_low  (void);

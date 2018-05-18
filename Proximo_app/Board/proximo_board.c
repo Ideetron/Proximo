@@ -4,6 +4,7 @@
 #include "sdk_config.h"
 #include "proximo_board.h"
 #include "nrf_delay.h"
+#include "nrf_drv_lpcomp.h"
 
 
 void proximo_io_init(void)
@@ -92,3 +93,32 @@ static __inline void SK6812_WriteBit0 (void)
     nrf_gpio_pin_write(SK6812_DIN_PIN, 0);
 }
 
+/*******************************************************************************************************************************************************************************************
+ * @brief Initialize LPCOMP driver.
+ ******************************************************************************************************************************************************************************************/
+void movement_init(void (*movement_event_handler)(nrf_lpcomp_event_t))
+{
+    uint32_t err_code;
+	
+    /*
+    * Configures the LPCOMP to VCC4/8, UP with hysteresis enabled
+    */
+
+    nrf_drv_lpcomp_config_t config = NRF_DRV_LPCOMP_DEFAULT_CONFIG;
+	
+    // Initialize LPCOMP driver, from this point LPCOMP will be active and provided event handler will be executed when defined action is detected
+    err_code = nrf_drv_lpcomp_init(&config, *(movement_event_handler));
+    APP_ERROR_CHECK(err_code);
+    nrf_drv_lpcomp_enable();
+}
+
+
+/*******************************************************************************************************************************************************************************************
+ * @brief De-initialize LPCOMP driver for shutdown.
+ ******************************************************************************************************************************************************************************************/
+void movement_deinit(void)
+{
+  //  Disable the Low Power Comperator.
+  nrf_drv_lpcomp_disable();
+  nrf_drv_lpcomp_uninit();
+}

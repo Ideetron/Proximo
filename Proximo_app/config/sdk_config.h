@@ -1601,7 +1601,7 @@
 // <e> LPCOMP_ENABLED - nrf_drv_lpcomp - LPCOMP peripheral driver - legacy layer
 //==========================================================
 #ifndef LPCOMP_ENABLED
-#define LPCOMP_ENABLED 0
+#define LPCOMP_ENABLED 1
 #endif
 // <o> LPCOMP_CONFIG_REFERENCE  - Reference voltage
  
@@ -1624,7 +1624,7 @@
 // <65543=> External Ref 1 
 
 #ifndef LPCOMP_CONFIG_REFERENCE
-#define LPCOMP_CONFIG_REFERENCE 3
+#define LPCOMP_CONFIG_REFERENCE 12
 #endif
 
 // <o> LPCOMP_CONFIG_DETECTION  - Detection
@@ -1634,7 +1634,7 @@
 // <2=> Down 
 
 #ifndef LPCOMP_CONFIG_DETECTION
-#define LPCOMP_CONFIG_DETECTION 2
+#define LPCOMP_CONFIG_DETECTION 1
 #endif
 
 // <o> LPCOMP_CONFIG_INPUT  - Analog input
@@ -1656,7 +1656,7 @@
  
 
 #ifndef LPCOMP_CONFIG_HYST
-#define LPCOMP_CONFIG_HYST 0
+#define LPCOMP_CONFIG_HYST 1
 #endif
 
 // <o> LPCOMP_CONFIG_IRQ_PRIORITY  - Interrupt priority
@@ -2176,7 +2176,7 @@
 // <e> NRFX_LPCOMP_ENABLED - nrfx_lpcomp - LPCOMP peripheral driver
 //==========================================================
 #ifndef NRFX_LPCOMP_ENABLED
-#define NRFX_LPCOMP_ENABLED 0
+#define NRFX_LPCOMP_ENABLED 1
 #endif
 // <o> NRFX_LPCOMP_CONFIG_REFERENCE  - Reference voltage
  
@@ -2199,7 +2199,7 @@
 // <65543=> External Ref 1 
 
 #ifndef NRFX_LPCOMP_CONFIG_REFERENCE
-#define NRFX_LPCOMP_CONFIG_REFERENCE 3
+#define NRFX_LPCOMP_CONFIG_REFERENCE 14
 #endif
 
 // <o> NRFX_LPCOMP_CONFIG_DETECTION  - Detection
@@ -2209,7 +2209,7 @@
 // <2=> Down 
 
 #ifndef NRFX_LPCOMP_CONFIG_DETECTION
-#define NRFX_LPCOMP_CONFIG_DETECTION 2
+#define NRFX_LPCOMP_CONFIG_DETECTION 1
 #endif
 
 // <o> NRFX_LPCOMP_CONFIG_INPUT  - Analog input
@@ -2231,7 +2231,7 @@
  
 
 #ifndef NRFX_LPCOMP_CONFIG_HYST
-#define NRFX_LPCOMP_CONFIG_HYST 0
+#define NRFX_LPCOMP_CONFIG_HYST 1
 #endif
 
 // <o> NRFX_LPCOMP_CONFIG_IRQ_PRIORITY  - Interrupt priority

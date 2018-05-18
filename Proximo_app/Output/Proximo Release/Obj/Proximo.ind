@@ -44,6 +44,8 @@
 "Output/Proximo Release/Obj/nrfx_prs.o"
 "Output/Proximo Release/Obj/nrfx_uart.o"
 "Output/Proximo Release/Obj/nrfx_uarte.o"
+"Output/Proximo Release/Obj/nrfx_rtc.o"
+"Output/Proximo Release/Obj/nrfx_lpcomp.o"
 "Output/Proximo Release/Obj/bsp.o"
 "Output/Proximo Release/Obj/bsp_btn_ble.o"
 "Output/Proximo Release/Obj/SEGGER_RTT.o"

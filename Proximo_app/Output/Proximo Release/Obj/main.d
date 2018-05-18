@@ -72,11 +72,8 @@ Output/Proximo\ Release/Obj/main.o: \
  ../nRF5_SDK_15.0.0/components/softdevice/common/nrf_sdh.h \
  ../nRF5_SDK_15.0.0/components/softdevice/common/nrf_sdh_soc.h \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_soc.h \
- ../nRF5_SDK_15.0.0/components/libraries/timer/app_timer.h \
- ../nRF5_SDK_15.0.0/components/libraries/bsp/bsp_btn_ble.h \
- ../nRF5_SDK_15.0.0/components/libraries/bsp/bsp.h \
- ../nRF5_SDK_15.0.0/components/boards/boards.h \
- ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_gpio.h \
+ ../nRF5_SDK_15.0.0/integration/nrfx/legacy/nrf_drv_rtc.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/drivers/include/nrfx_rtc.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/nrfx.h \
  ../nRF5_SDK_15.0.0/integration/nrfx/nrfx_config.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/drivers/nrfx_common.h \
@@ -93,7 +90,19 @@ Output/Proximo\ Release/Obj/main.o: \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_resources.h \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_sd_def.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/drivers/nrfx_errors.h \
- Board/proximo_board.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_rtc.h \
+ ../nRF5_SDK_15.0.0/integration/nrfx/legacy/nrf_drv_clock.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/drivers/include/nrfx_clock.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_clock.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/drivers/include/nrfx_power_clock.h \
+ ../nRF5_SDK_15.0.0/components/libraries/timer/app_timer.h \
+ ../nRF5_SDK_15.0.0/components/libraries/bsp/bsp_btn_ble.h \
+ ../nRF5_SDK_15.0.0/components/libraries/bsp/bsp.h \
+ ../nRF5_SDK_15.0.0/components/boards/boards.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_gpio.h Board/proximo_board.h \
+ ../nRF5_SDK_15.0.0/integration/nrfx/legacy/nrf_drv_lpcomp.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/drivers/include/nrfx_lpcomp.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_lpcomp.h \
  ../nRF5_SDK_15.0.0/components/libraries/button/app_button.h \
  ../nRF5_SDK_15.0.0/components/ble/peer_manager/peer_manager.h \
  ../nRF5_SDK_15.0.0/components/ble/peer_manager/peer_manager_types.h \

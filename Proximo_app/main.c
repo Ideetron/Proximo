@@ -162,7 +162,20 @@ static ble_uuid_t m_adv_uuids[] =                                   /**< Univers
 
 #define COMPARE_COUNTERTIME  (5UL)                                        /**< Get Compare event COMPARE_TIME seconds after the counter starts from 0. */
 const nrf_drv_rtc_t rtc = NRF_DRV_RTC_INSTANCE(2); /**< Declaring an instance of nrf_drv_rtc for RTC1. Note that RTC0 is used by the soft device */
+uint32_t movementCount = 0;
 
+
+
+
+
+void movement_event_handler(nrf_lpcomp_event_t event)
+{
+  if (event == NRF_LPCOMP_EVENT_UP && movementCount != UINT32_MAX)
+  {
+    // Check if the next increment will cause an overflow if not, increment the pulse count value.
+    movementCount++;
+  }
+}
 
 /** @brief: Function for handling the RTC0 interrupts.
  * Triggered on TICK and COMPARE0 match.
@@ -176,6 +189,10 @@ static void rtc_handler(nrf_drv_rtc_int_type_t int_type)
       APP_ERROR_CHECK(err_code);
       nrf_drv_rtc_counter_clear(&rtc);
       nrf_gpio_pin_toggle(ALARM_OUT_PIN);
+
+      // print and the clear the number of movement pulses counted
+      NRF_LOG_INFO("Movement count: %u\n", movementCount);
+      movementCount = 0;
   }
   else if (int_type == NRF_DRV_RTC_INT_TICK)
   {
@@ -1089,7 +1106,7 @@ int main(void)
     buttons_init(&erase_bonds);
     proximo_io_init();
     rtc_config();
-
+    movement_init(&movement_event_handler);
     power_management_init();
     ble_stack_init();
     gap_params_init();

@@ -62,6 +62,9 @@ Output/Proximo\ Release/Obj/bsp_btn_ble.o: \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_sd_def.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/drivers/nrfx_errors.h \
  Board/proximo_board.h \
+ ../nRF5_SDK_15.0.0/integration/nrfx/legacy/nrf_drv_lpcomp.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/drivers/include/nrfx_lpcomp.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_lpcomp.h \
  ../nRF5_SDK_15.0.0/components/libraries/button/app_button.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/app_error.h \
  ../nRF5_SDK_15.0.0/components/softdevice/common/nrf_sdh_ble.h \

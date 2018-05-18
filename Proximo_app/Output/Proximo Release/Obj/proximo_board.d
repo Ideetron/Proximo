@@ -1,6 +1,5 @@
 Output/Proximo\ Release/Obj/proximo_board.o: \
  D:\localrep\Proximo\Proximo_app\Board\proximo_board.c \
- D:\localrep\Proximo\Proximo_app\Board\proximo_board.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_gpio.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/nrfx.h \
  ../nRF5_SDK_15.0.0/integration/nrfx/nrfx_config.h config/sdk_config.h \
@@ -48,4 +47,9 @@ Output/Proximo\ Release/Obj/proximo_board.o: \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_errors.h \
  ../nRF5_SDK_15.0.0/components/libraries/util/sdk_resources.h \
  ../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_sd_def.h \
- ../nRF5_SDK_15.0.0/modules/nrfx/drivers/nrfx_errors.h
+ ../nRF5_SDK_15.0.0/modules/nrfx/drivers/nrfx_errors.h \
+ D:\localrep\Proximo\Proximo_app\Board\proximo_board.h \
+ ../nRF5_SDK_15.0.0/integration/nrfx/legacy/nrf_drv_lpcomp.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/drivers/include/nrfx_lpcomp.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_lpcomp.h \
+ ../nRF5_SDK_15.0.0/components/libraries/delay/nrf_delay.h

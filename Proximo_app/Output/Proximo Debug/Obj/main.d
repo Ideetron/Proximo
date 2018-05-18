@@ -99,6 +99,9 @@ Output/Proximo\ Debug/Obj/main.o: D:\localrep\Proximo\Proximo_app\main.c \
  ../nRF5_SDK_15.0.0/components/libraries/bsp/bsp.h \
  ../nRF5_SDK_15.0.0/components/boards/boards.h \
  ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_gpio.h Board/proximo_board.h \
+ ../nRF5_SDK_15.0.0/integration/nrfx/legacy/nrf_drv_lpcomp.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/drivers/include/nrfx_lpcomp.h \
+ ../nRF5_SDK_15.0.0/modules/nrfx/hal/nrf_lpcomp.h \
  ../nRF5_SDK_15.0.0/components/libraries/button/app_button.h \
  ../nRF5_SDK_15.0.0/components/ble/peer_manager/peer_manager.h \
  ../nRF5_SDK_15.0.0/components/ble/peer_manager/peer_manager_types.h \
