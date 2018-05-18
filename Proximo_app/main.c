@@ -66,6 +66,8 @@
 #include "nrf_sdh.h"
 #include "nrf_sdh_ble.h"
 #include "nrf_sdh_soc.h"
+#include "nrf_drv_rtc.h"
+#include "nrf_drv_clock.h"
 #include "app_timer.h"
 #include "bsp_btn_ble.h"
 #include "peer_manager.h"
@@ -80,6 +82,7 @@
 #include "nrf_log_default_backends.h"
 
 #include "proximo_board.h"
+
 
 
 #define DEVICE_NAME                         "Nordic_HRM"                            /**< Name of device. Will be included in the advertising data. */
@@ -155,6 +158,29 @@ static ble_uuid_t m_adv_uuids[] =                                   /**< Univers
     {BLE_UUID_BATTERY_SERVICE,              BLE_UUID_TYPE_BLE},
     {BLE_UUID_DEVICE_INFORMATION_SERVICE,   BLE_UUID_TYPE_BLE}
 };
+
+
+#define COMPARE_COUNTERTIME  (5UL)                                        /**< Get Compare event COMPARE_TIME seconds after the counter starts from 0. */
+const nrf_drv_rtc_t rtc = NRF_DRV_RTC_INSTANCE(2); /**< Declaring an instance of nrf_drv_rtc for RTC1. Note that RTC0 is used by the soft device */
+
+
+/** @brief: Function for handling the RTC0 interrupts.
+ * Triggered on TICK and COMPARE0 match.
+ */
+static void rtc_handler(nrf_drv_rtc_int_type_t int_type)
+{
+  uint32_t err_code;
+  if (int_type == NRF_DRV_RTC_INT_COMPARE0)
+  {
+      err_code = nrf_drv_rtc_cc_set(&rtc, 0, COMPARE_COUNTERTIME * 8, true);
+      APP_ERROR_CHECK(err_code);
+      nrf_drv_rtc_counter_clear(&rtc);
+      nrf_gpio_pin_toggle(ALARM_OUT_PIN);
+  }
+  else if (int_type == NRF_DRV_RTC_INT_TICK)
+  {
+  }
+}
 
 
 /**@brief Callback function for asserts in the SoftDevice.
@@ -1016,6 +1042,39 @@ static void idle_state_handle(void)
     }
 }
 
+/** @brief Function starting the internal LFCLK XTAL oscillator.
+ */
+static void lfclk_config(void)
+{
+    ret_code_t err_code = nrf_drv_clock_init();
+    APP_ERROR_CHECK(err_code);
+
+    nrf_drv_clock_lfclk_request(NULL);
+}
+
+/** @brief Function initialization and configuration of RTC driver instance.
+ */
+static void rtc_config(void)
+{
+    uint32_t err_code;
+
+    //Initialize RTC instance
+    nrf_drv_rtc_config_t config = NRF_DRV_RTC_DEFAULT_CONFIG;
+    config.prescaler = 4095;
+    err_code = nrf_drv_rtc_init(&rtc, &config, rtc_handler);
+    APP_ERROR_CHECK(err_code);
+
+    //Enable tick event & interrupt
+    nrf_drv_rtc_tick_enable(&rtc,true);
+
+    //Set compare channel to trigger interrupt after COMPARE_COUNTERTIME seconds
+    err_code = nrf_drv_rtc_cc_set(&rtc,0,COMPARE_COUNTERTIME * 8,true);
+    APP_ERROR_CHECK(err_code);
+
+    //Power on RTC instance
+    nrf_drv_rtc_enable(&rtc);
+}
+
 
 /**@brief Function for application main entry.
  */
@@ -1025,9 +1084,12 @@ int main(void)
 
     // Initialize.
     log_init();
+    lfclk_config();
     timers_init();
     buttons_init(&erase_bonds);
     proximo_io_init();
+    rtc_config();
+
     power_management_init();
     ble_stack_init();
     gap_params_init();
@@ -1042,6 +1104,7 @@ int main(void)
     NRF_LOG_INFO("Proximo Application started.");
     application_timers_start();
     advertising_start(erase_bonds);
+
 
     // Enter main loop.
     for (;;)

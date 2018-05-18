@@ -44,6 +44,7 @@
 "Output/Proximo Debug/Obj/nrfx_prs.o"
 "Output/Proximo Debug/Obj/nrfx_uart.o"
 "Output/Proximo Debug/Obj/nrfx_uarte.o"
+"Output/Proximo Debug/Obj/nrfx_rtc.o"
 "Output/Proximo Debug/Obj/bsp.o"
 "Output/Proximo Debug/Obj/bsp_btn_ble.o"
 "Output/Proximo Debug/Obj/SEGGER_RTT.o"

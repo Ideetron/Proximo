@@ -2,13 +2,8 @@
 */
 #include "nrf_gpio.h"
 #include "sdk_config.h"
-//#if NRF_MODULE_ENABLED(BUTTON)
-//#include "app_button.h"
-//#include "app_timer.h"
-//#include "app_error.h"
-//#include "nrf_drv_gpiote.h"
-//#include "nrf_assert.h"
 #include "proximo_board.h"
+#include "nrf_delay.h"
 
 
 void proximo_io_init(void)
@@ -29,13 +24,71 @@ void proximo_io_init(void)
 
   //  Buzzer pin
   nrf_gpio_cfg_output(BUZZER_PIN);
-  nrf_gpio_pin_write(BUZZER_PIN, 1);
+  nrf_gpio_pin_write(BUZZER_PIN, 0);
 
   //  Alarm output pin
   nrf_gpio_cfg_output(ALARM_OUT_PIN);
-  nrf_gpio_pin_write(ALARM_OUT_PIN, 1);
+  nrf_gpio_pin_write(ALARM_OUT_PIN, 0);
 
   //  Boost converter enable pin
   nrf_gpio_cfg_output(TPS_EN_PIN);
   nrf_gpio_pin_write(TPS_EN_PIN, 0);
 }
+
+
+//__inline void proximo_din_high(void)
+//{
+//  nrf_gpio_pin_write(SK6812_DIN_PIN, 1);
+//}
+//
+//__inline void proximo_din_low(void)
+//{
+//  nrf_gpio_pin_write(SK6812_DIN_PIN, 0);
+//}
+//
+//
+//__inline void proximo_tps_on(void)
+//{
+//  nrf_gpio_pin_write(TPS_EN_PIN, 1);
+//}
+//
+//__inline void proximo_tps_off(void)
+//{
+//  nrf_gpio_pin_write(TPS_EN_PIN, 0);
+//}
+
+
+/*
+* Description :     SK6812_WriteBit1
+* Brief:            Write a one to the SK6812        
+*/
+static __inline void SK6812_WriteBit1(void)
+{
+    // Set the Data pin High
+    nrf_gpio_pin_write(SK6812_DIN_PIN, 1);
+    
+    nrf_delay_us(10);
+    
+    // Set the Neo Pixel data pin low.
+    nrf_gpio_pin_write(SK6812_DIN_PIN, 0);
+    
+    // Wait
+//    Nop();
+}
+
+/*
+* Description :     SK6812_WriteBit0
+* Brief:            Write a zero to the SK6812      
+*/
+static __inline void SK6812_WriteBit0 (void)
+{
+    // Set the Data pin High
+    nrf_gpio_pin_write(SK6812_DIN_PIN, 1);
+    
+    // Wait
+//    Nop();
+
+    // Set the Neo Pixel data pin low.
+    nrf_gpio_pin_write(SK6812_DIN_PIN, 0);
+}
+
