@@ -1404,13 +1404,13 @@
 // <e> I2S_ENABLED - nrf_drv_i2s - I2S peripheral driver - legacy layer
 //==========================================================
 #ifndef I2S_ENABLED
-#define I2S_ENABLED 0
+#define I2S_ENABLED 1
 #endif
 // <o> I2S_CONFIG_SCK_PIN - SCK pin  <0-31> 
 
 
 #ifndef I2S_CONFIG_SCK_PIN
-#define I2S_CONFIG_SCK_PIN 31
+#define I2S_CONFIG_SCK_PIN 20
 #endif
 
 // <o> I2S_CONFIG_LRCK_PIN - LRCK pin  <1-31> 
@@ -1429,7 +1429,7 @@
 
 
 #ifndef I2S_CONFIG_SDOUT_PIN
-#define I2S_CONFIG_SDOUT_PIN 29
+#define I2S_CONFIG_SDOUT_PIN 13
 #endif
 
 // <o> I2S_CONFIG_SDIN_PIN - SDIN pin  <0-31> 
@@ -1483,7 +1483,7 @@
 // <2=> Right 
 
 #ifndef I2S_CONFIG_CHANNELS
-#define I2S_CONFIG_CHANNELS 1
+#define I2S_CONFIG_CHANNELS 0
 #endif
 
 // <o> I2S_CONFIG_MCK_SETUP  - MCK behavior
@@ -1509,7 +1509,7 @@
 // <34340864=> 32MHz/125 
 
 #ifndef I2S_CONFIG_MCK_SETUP
-#define I2S_CONFIG_MCK_SETUP 536870912
+#define I2S_CONFIG_MCK_SETUP 100663296
 #endif
 
 // <o> I2S_CONFIG_RATIO  - MCK/LRCK ratio
@@ -1981,7 +1981,7 @@
 // <e> NRFX_I2S_ENABLED - nrfx_i2s - I2S peripheral driver
 //==========================================================
 #ifndef NRFX_I2S_ENABLED
-#define NRFX_I2S_ENABLED 0
+#define NRFX_I2S_ENABLED 1
 #endif
 // <o> NRFX_I2S_CONFIG_SCK_PIN - SCK pin  <0-31> 
 

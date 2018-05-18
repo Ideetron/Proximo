@@ -81,6 +81,7 @@
     <folder Name="Board Definition">
       <file file_name="../nRF5_SDK_15.0.0/components/boards/boards.c" />
       <file file_name="Board/proximo_board.c" />
+      <file file_name="sk6812.c" />
     </folder>
     <folder Name="nRF_Drivers">
       <file file_name="../nRF5_SDK_15.0.0/integration/nrfx/legacy/nrf_drv_clock.c" />
@@ -93,6 +94,7 @@
       <file file_name="../nRF5_SDK_15.0.0/modules/nrfx/drivers/src/nrfx_uarte.c" />
       <file file_name="../nRF5_SDK_15.0.0/modules/nrfx/drivers/src/nrfx_rtc.c" />
       <file file_name="../nRF5_SDK_15.0.0/modules/nrfx/drivers/src/nrfx_lpcomp.c" />
+      <file file_name="../nRF5_SDK_15.0.0/modules/nrfx/drivers/src/nrfx_i2s.c" />
     </folder>
     <folder Name="Board Support">
       <file file_name="../nRF5_SDK_15.0.0/components/libraries/bsp/bsp.c" />
