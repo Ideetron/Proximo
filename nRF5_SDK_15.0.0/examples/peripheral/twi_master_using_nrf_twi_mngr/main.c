@@ -47,6 +47,7 @@
  */
 
 #include <stdio.h>
+#include <stdint.h>
 #include "boards.h"
 #include "app_util_platform.h"
 #include "app_timer.h"
@@ -58,6 +59,7 @@
 #include "nrf_twi_mngr.h"
 #include "lm75b.h"
 #include "mma7660.h"
+#include "th06.h"
 #include "compiler_abstraction.h"
 
 #include "nrf_log.h"
@@ -67,6 +69,10 @@
 #define TWI_INSTANCE_ID             0
 
 #define MAX_PENDING_TRANSACTIONS    5
+
+ 
+#define I2C_SCL_PIN      11 //  I2C Serial Clock Line  
+#define I2C_SDA_PIN      12 //  I2C Serial Data
 
 NRF_TWI_MNGR_DEF(m_nrf_twi_mngr, MAX_PENDING_TRANSACTIONS, TWI_INSTANCE_ID);
 APP_TIMER_DEF(m_timer);
@@ -208,8 +214,7 @@ static void read_all(void)
     //  will be referred after this function returns]
     static nrf_twi_mngr_transfer_t const transfers[] =
     {
-        LM75B_READ_TEMP(&m_buffer[0])
-        ,
+        LM75B_READ_TEMP(&m_buffer[0]),
         MMA7660_READ_XYZ_AND_TILT(&m_buffer[2])
     };
     static nrf_twi_mngr_transaction_t NRF_TWI_MNGR_BUFFER_LOC_IND transaction =
@@ -267,37 +272,7 @@ static void read_lm75b_registers(void)
 #if (BUFFER_SIZE < MMA7660_NUMBER_OF_REGISTERS)
     #error Buffer too small.
 #endif
-static void read_mma7660_registers_cb(ret_code_t result, void * p_user_data)
-{
-    if (result != NRF_SUCCESS)
-    {
-        NRF_LOG_WARNING("read_mma7660_registers_cb - error: %d", (int)result);
-        return;
-    }
 
-    NRF_LOG_DEBUG("MMA7660:");
-    NRF_LOG_HEXDUMP_DEBUG(m_buffer, MMA7660_NUMBER_OF_REGISTERS);
-}
-static void read_mma7660_registers(void)
-{
-    // [these structures have to be "static" - they cannot be placed on stack
-    //  since the transaction is scheduled and these structures most likely
-    //  will be referred after this function returns]
-    static nrf_twi_mngr_transfer_t const transfers[] =
-    {
-        MMA7660_READ(&mma7660_xout_reg_addr,
-            m_buffer, MMA7660_NUMBER_OF_REGISTERS)
-    };
-    static nrf_twi_mngr_transaction_t NRF_TWI_MNGR_BUFFER_LOC_IND transaction =
-    {
-        .callback            = read_mma7660_registers_cb,
-        .p_user_data         = NULL,
-        .p_transfers         = transfers,
-        .number_of_transfers = sizeof(transfers) / sizeof(transfers[0])
-    };
-
-    APP_ERROR_CHECK(nrf_twi_mngr_schedule(&m_nrf_twi_mngr, &transaction));
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -310,11 +285,11 @@ static void bsp_event_handler(bsp_event_t event)
     switch (event)
     {
     case BSP_EVENT_KEY_0: // Button 1 pushed.
-        read_lm75b_registers();
+//        read_lm75b_registers();
         break;
 
     case BSP_EVENT_KEY_3: // Button 4 pushed.
-        read_mma7660_registers();
+//        read_mma7660_registers();
         break;
 
     default:
@@ -336,10 +311,10 @@ static void bsp_config(void)
 static void twi_config(void)
 {
     uint32_t err_code;
-
+  
     nrf_drv_twi_config_t const config = {
-       .scl                = ARDUINO_SCL_PIN,
-       .sda                = ARDUINO_SDA_PIN,
+       .scl                = I2C_SCL_PIN,
+       .sda                = I2C_SDA_PIN,
        .frequency          = NRF_DRV_TWI_FREQ_100K,
        .interrupt_priority = APP_IRQ_PRIORITY_LOWEST,
        .clear_bus_init     = false
@@ -385,6 +360,83 @@ void log_init(void)
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
+static void read_mma7660_registers_cb(ret_code_t result, void * p_user_data)
+{
+    if (result != NRF_SUCCESS)
+    {
+        NRF_LOG_WARNING("read_mma7660_registers_cb - error: %d", (int)result);
+        return;
+    }
+
+    NRF_LOG_DEBUG("MMA7660:");
+    NRF_LOG_HEXDUMP_DEBUG(m_buffer, MMA7660_NUMBER_OF_REGISTERS);
+}
+static void read_mma7660_registers(void)
+{
+    // [these structures have to be "static" - they cannot be placed on stack
+    //  since the transaction is scheduled and these structures most likely
+    //  will be referred after this function returns]
+    static nrf_twi_mngr_transfer_t const transfers[] =
+    {
+        MMA7660_READ(&mma7660_xout_reg_addr,
+            m_buffer, MMA7660_NUMBER_OF_REGISTERS)
+    };
+    static nrf_twi_mngr_transaction_t NRF_TWI_MNGR_BUFFER_LOC_IND transaction =
+    {
+        .callback            = read_mma7660_registers_cb,
+        .p_user_data         = NULL,
+        .p_transfers         = transfers,
+        .number_of_transfers = sizeof(transfers) / sizeof(transfers[0])
+    };
+
+    APP_ERROR_CHECK(nrf_twi_mngr_schedule(&m_nrf_twi_mngr, &transaction));
+}
+
+
+
+static void th06_init_cb(ret_code_t result, void * p_user_data)
+{
+    if (result != NRF_SUCCESS)
+    {
+        NRF_LOG_WARNING("read_th06_registers_cb - error: %02X", (int)result);
+        return;
+    }
+
+    NRF_LOG_DEBUG("TH06:");
+    NRF_LOG_HEXDUMP_DEBUG(m_buffer, 1);
+}
+
+
+//  #define TH06_READ(p_reg_addr, p_buffer, byte_cnt) \
+//    NRF_TWI_MNGR_WRITE(THO6_I2C_ADDRESS, p_reg_addr, 1,        NRF_TWI_MNGR_NO_STOP), \
+//    NRF_TWI_MNGR_READ (THO6_I2C_ADDRESS, p_buffer,   byte_cnt, 0)
+//  #define TH06_READ(p_reg_addr, p_buffer, byte_cnt) \
+//    NRF_TWI_MNGR_WRITE(MMA7660_ADDR, p_reg_addr, 1,        NRF_TWI_MNGR_NO_STOP), \
+//    NRF_TWI_MNGR_READ (MMA7660_ADDR, p_buffer,   byte_cnt, 0)
+
+static void th06_init(void)
+{
+//    uint8_t NRF_TWI_MNGR_BUFFER_LOC_IND th06_write_user_regA1 = TH06_WRITE_USER_REG1;
+    // [these structures have to be "static" - they cannot be placed on stack
+    //  since the transaction is scheduled and these structures most likely
+    //  will be referred after this function returns]
+    static nrf_twi_mngr_transfer_t const transfers[] =
+    {
+        TH06_READ(&th06_write_user_reg1,  &m_buffer[0], 1) // MMA7660_READ TH06_READ
+    };
+
+    static nrf_twi_mngr_transaction_t NRF_TWI_MNGR_BUFFER_LOC_IND transaction =
+    {
+        .callback            = th06_init_cb,
+        .p_user_data         = NULL,
+        .p_transfers         = transfers,
+        .number_of_transfers = sizeof(transfers) / sizeof(transfers[0])
+    };
+
+    APP_ERROR_CHECK(nrf_twi_mngr_schedule(&m_nrf_twi_mngr, &transaction));
+}
+
+
 int main(void)
 {
     ret_code_t err_code;
@@ -409,10 +461,8 @@ int main(void)
     read_init();
 
     // Initialize sensors.
-    APP_ERROR_CHECK(nrf_twi_mngr_perform(&m_nrf_twi_mngr, NULL, lm75b_init_transfers,
-        LM75B_INIT_TRANSFER_COUNT, NULL));
-    APP_ERROR_CHECK(nrf_twi_mngr_perform(&m_nrf_twi_mngr, NULL, mma7660_init_transfers,
-        MMA7660_INIT_TRANSFER_COUNT, NULL));
+//    APP_ERROR_CHECK(nrf_twi_mngr_perform(&m_nrf_twi_mngr, NULL, th06_init_transfers, 1, th06_statemachine));
+    th06_init();
 
     while (true)
     {

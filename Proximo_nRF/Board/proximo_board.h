@@ -55,26 +55,15 @@ extern "C" {
 #define BSP_BUTTON_2   BUTTON_3
 
 
-/* SK6812 Colour definitions */
-#define SK6812_OFF      0x00, 0x00, 0x00
-#define SK6812_GREEN    0xFF, 0x00, 0x00
-#define SK6812_RED      0x00, 0xFF, 0x00
-#define SK6812_BLUE     0x00, 0x00, 0xFF
-#define SK6812_YELLOW   0xFF, 0xFF, 0x00
-#define SK6812_PURPLE   0x00, 0xFF, 0xFF
-#define SK6812_WHITE    0xFF, 0xFF, 0xFF
 
-#define SK6812_ORANGE   0xFF, 0xA0, 0x00
-#define SK6812_GREY     0x80, 0x80, 0x80
+void proximo_io_init  (void);
 
-          void proximo_io_init  (void);
-
-          void movement_init    (void (*movement_event_handler)(nrf_lpcomp_event_t));
-          void movement_deinit  (void);
+void movement_init    (void (*movement_event_handler)(nrf_lpcomp_event_t));
+void movement_deinit  (void);
 
 
-          void proximo_tps_on   (void);
-          void proximo_tps_off  (void);
+void proximo_tps_on   (void);
+void proximo_tps_off  (void);
 
 #ifdef __cplusplus
 }

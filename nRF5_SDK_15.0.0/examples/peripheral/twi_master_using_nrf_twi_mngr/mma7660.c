@@ -51,6 +51,7 @@
 
 #include "mma7660.h"
 
+//extern uint8_t NRF_TWI_MNGR_BUFFER_LOC_IND mma7660_xout_reg_addr;
 uint8_t NRF_TWI_MNGR_BUFFER_LOC_IND mma7660_xout_reg_addr = MMA7660_REG_XOUT;
 
 // Set Active mode.
