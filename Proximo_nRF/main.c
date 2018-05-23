@@ -88,10 +88,11 @@
 #include "sk6812.h"
 #include "buzzer.h"
 #include "th06.h"
+#include "adc.h" 
 
 
 
-#define DEVICE_NAME                         "Nordic_HRM"                            /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                         "Proximo"                               /**< Name of device. Will be included in the advertising data. */
 #define MANUFACTURER_NAME                   "NordicSemiconductor"                   /**< Manufacturer. Will be passed to Device Information Service. */
 #define APP_ADV_INTERVAL                    300                                     /**< The advertising interval (in units of 0.625 ms. This value corresponds to 187.5 ms). */
 
@@ -143,9 +144,6 @@
  * I2S example code
  */
 
-#define I2S_DATA_BLOCK_WORDS    128
-static uint32_t m_buffer_tx[2][I2S_DATA_BLOCK_WORDS];
-static uint32_t m_buffer_rx[2][I2S_DATA_BLOCK_WORDS];
 
 // Delay time between consecutive I2S transfers performed in the main loop
 // (in milliseconds).
@@ -193,7 +191,7 @@ static ble_uuid_t m_adv_uuids[] =                                   /**< Univers
 };
 
 
-#define COMPARE_COUNTERTIME  (5UL)                                        /**< Get Compare event COMPARE_TIME seconds after the counter starts from 0. */
+#define COMPARE_COUNTERTIME  (1UL)                                        /**< Get Compare event COMPARE_TIME seconds after the counter starts from 0. */
 const nrf_drv_rtc_t rtc = NRF_DRV_RTC_INSTANCE(2); /**< Declaring an instance of nrf_drv_rtc for RTC1. Note that RTC0 is used by the soft device */
 uint32_t movementCount = 0;
 
@@ -205,8 +203,8 @@ void movement_event_handler(nrf_lpcomp_event_t event)
 {
   if (event == NRF_LPCOMP_EVENT_UP && movementCount != UINT32_MAX)
   {
-    // Check if the next increment will cause an overflow if not, increment the pulse count value.
-    movementCount++;
+      // Check if the next increment will cause an overflow if not, increment the pulse count value.
+      movementCount++;
   }
 }
 
@@ -223,6 +221,7 @@ static void rtc_handler(nrf_drv_rtc_int_type_t int_type)
       nrf_drv_rtc_counter_clear(&rtc);
       nrf_gpio_pin_toggle(ALARM_OUT_PIN);
       measureTemperature = true;
+      measure_vcc();
 
       // print and the clear the number of movement pulses counted
       NRF_LOG_INFO("Movement count: %u", movementCount);
@@ -1075,12 +1074,6 @@ static void buttons_init(bool * p_erase_bonds)
     err_code = bsp_init(BSP_INIT_BUTTONS, bsp_event_handler);
     APP_ERROR_CHECK(err_code);
 
-//    err_code = bsp_buttons_enable();
-//    APP_ERROR_CHECK(err_code);
-
-//    err_code = bsp_btn_ble_init(NULL, &startup_event);
-//    APP_ERROR_CHECK(err_code);
-
     *p_erase_bonds = (startup_event == BSP_EVENT_CLEAR_BONDING_DATA);
 }
 
@@ -1153,158 +1146,12 @@ static void rtc_config(void)
 
 
 
-/*
- * I2S code example
- */
-
- static void prepare_tx_data(uint32_t * p_block)
-{
-    // These variables will be both zero only at the very beginning of each
-    // transfer, so we use them as the indication that the re-initialization
-    // should be performed.
-    if (m_blocks_transferred == 0 && m_zero_samples_to_ignore == 0)
-    {
-        // Number of initial samples (actually pairs of L/R samples) with zero
-        // values that should be ignored - see the comment in 'check_samples'.
-        m_zero_samples_to_ignore = 2;
-        m_sample_value_to_send   = 0xCAFE;
-        m_sample_value_expected  = 0xCAFE;
-        m_error_encountered      = false;
-    }
-
-    // [each data word contains two 16-bit samples]
-    uint16_t i;
-    for (i = 0; i < I2S_DATA_BLOCK_WORDS; ++i)
-    {
-        uint16_t sample_l = m_sample_value_to_send - 1;
-        uint16_t sample_r = m_sample_value_to_send + 1;
-        ++m_sample_value_to_send;
-
-        uint32_t * p_word = &p_block[i];
-        ((uint16_t *)p_word)[0] = sample_l;
-        ((uint16_t *)p_word)[1] = sample_r;
-    }
-}
-
-
-static bool check_samples(uint32_t const * p_block)
-{
-    // [each data word contains two 16-bit samples]
-    uint16_t i;
-    for (i = 0; i < I2S_DATA_BLOCK_WORDS; ++i)
-    {
-        uint32_t const * p_word = &p_block[i];
-        uint16_t actual_sample_l = ((uint16_t const *)p_word)[0];
-        uint16_t actual_sample_r = ((uint16_t const *)p_word)[1];
-
-        // Normally a couple of initial samples sent by the I2S peripheral
-        // will have zero values, because it starts to output the clock
-        // before the actual data is fetched by EasyDMA. As we are dealing
-        // with streaming the initial zero samples can be simply ignored.
-        if (m_zero_samples_to_ignore > 0 &&
-            actual_sample_l == 0 &&
-            actual_sample_r == 0)
-        {
-            --m_zero_samples_to_ignore;
-        }
-        else
-        {
-            m_zero_samples_to_ignore = 0;
-
-            uint16_t expected_sample_l = m_sample_value_expected - 1;
-            uint16_t expected_sample_r = m_sample_value_expected + 1;
-            ++m_sample_value_expected;
-
-            if (actual_sample_l != expected_sample_l ||
-                actual_sample_r != expected_sample_r)
-            {
-                NRF_LOG_INFO("%3u: %04x/%04x, expected: %04x/%04x (i: %u)",
-                    m_blocks_transferred, actual_sample_l, actual_sample_r,
-                    expected_sample_l, expected_sample_r, i);
-                return false;
-            }
-        }
-    }
-    NRF_LOG_INFO("%3u: OK", m_blocks_transferred);
-    return true;
-}
-
-
-static void check_rx_data(uint32_t const * p_block)
-{
-    ++m_blocks_transferred;
-
-    if (!m_error_encountered)
-    {
-        m_error_encountered = !check_samples(p_block);
-    }
-
-    if (m_error_encountered)
-    {
-//        bsp_board_led_off(LED_OK);
-//        bsp_board_led_invert(LED_ERROR);
-        NRF_LOG_INFO("Error Encountered on RX");
-    }
-    else
-    {
-//        bsp_board_led_off(LED_ERROR);
-//        bsp_board_led_invert(LED_OK);
-        NRF_LOG_INFO("No Error Encountered on RX");
-    }
-}
-
-
-static void data_handler(nrf_drv_i2s_buffers_t const * p_released,
-                         uint32_t                      status)
-{
-    // 'nrf_drv_i2s_next_buffers_set' is called directly from the handler
-    // each time next buffers are requested, so data corruption is not
-    // expected.
-    ASSERT(p_released);
-
-    // When the handler is called after the transfer has been stopped
-    // (no next buffers are needed, only the used buffers are to be
-    // released), there is nothing to do.
-    if (!(status & NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED))
-    {
-        return;
-    }
-
-    // First call of this handler occurs right after the transfer is started.
-    // No data has been transferred yet at this point, so there is nothing to
-    // check. Only the buffers for the next part of the transfer should be
-    // provided.
-    if (!p_released->p_rx_buffer)
-    {
-        nrf_drv_i2s_buffers_t const next_buffers = {
-            .p_rx_buffer = m_buffer_rx[1],
-            .p_tx_buffer = m_buffer_tx[1],
-        };
-        APP_ERROR_CHECK(nrf_drv_i2s_next_buffers_set(&next_buffers));
-
-        mp_block_to_fill = m_buffer_tx[1];
-    }
-    else
-    {
-        mp_block_to_check = p_released->p_rx_buffer;
-        // The driver has just finished accessing the buffers pointed by
-        // 'p_released'. They can be used for the next part of the transfer
-        // that will be scheduled now.
-        APP_ERROR_CHECK(nrf_drv_i2s_next_buffers_set(p_released));
-
-        // The pointer needs to be typecasted here, so that it is possible to
-        // modify the content it is pointing to (it is marked in the structure
-        // as pointing to constant data because the driver is not supposed to
-        // modify the provided data).
-        mp_block_to_fill = (uint32_t *)p_released->p_tx_buffer;
-    }
-}
 
 
 void app_error_fault_handler(uint32_t id, uint32_t pc, uint32_t info)
 {
 //    bsp_board_leds_on();
-    app_error_save_and_stop(id, pc, info);
+//    app_error_save_and_stop(id, pc, info);
 }
 
 
@@ -1324,6 +1171,7 @@ int main(void)
     timers_init();
     buttons_init(&erase_bonds);
     proximo_io_init();
+    saadc_init();
     
     rtc_config();
     movement_init(&movement_event_handler);
