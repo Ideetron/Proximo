@@ -1,0 +1,34 @@
+﻿Field=#~Integer~#~50|Field=value~String~value~100|Field=Description~String~Description~100|Field=Footprint~String~Footprint~100|Field=Designator~String~Designator~100|Field=Quantity~Integer~Quantity~100|Field=Sponsor~String~Sponsor~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~Proximo.PrjPCB|ReportField=ProjectFullPath~D:\localrep\WoTs_Proximo_hardware\Altium\Proximo.PrjPCB|ReportField=Title~Bill of Materials For Project [Proximo.PrjPCB] (No PCB Document Selected)|ReportField=TotalQuantity~74|ReportField=ReportTime~09:25:01|ReportField=ReportDate~5-3-2018|ReportField=ReportDateTime~5-3-2018 09:25:01|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=EngineerName~A. Verhoef|ReportField=ProjName~Proximo|ReportField=projNumber~1|ReportField=ProjRevisionNumber~0.1|ReportField=totalNbSheets~3|ReportField=Address1~Dorpstraat 81|ReportField=Address2~3941 JL Doorn|ReportField=Address3~3941 JL Doorn|ReportField=Address4~The Netherlands|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~5-3-2018|ReportField=CurrentTime~09:24:31|ReportField=Date~|ReportField=DocumentFullPathAndName~D:\localrep\WoTs_Proximo_hardware\Altium\overview.SchDoc|ReportField=DocumentName~overview.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~A. Verhoef|ReportField=ImagePath~|ReportField=ModifiedDate~5-3-2018|ReportField=Organization~Ideetron B.V.|ReportField=ProjectName~Proximo.PrjPCB|ReportField=Revision~0.1|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~3|ReportField=Time~|ReportField=Title~Proximo|ReportField=DataSourceFileName~Proximo.PrjPCB|ReportField=DataSourceFullPath~D:\localrep\WoTs_Proximo_hardware\Altium\Proximo.PrjPCB|ReportField=PCBConfigurationName~Sources|ReportField=Item~|ReportField=ItemRevision~|ReportField=ItemAndRevision~|ReportField=ItemRevisionBase~|ReportField=ItemRevisionLevel1~|ReportField=ItemRevisionLevel2~|ReportField=ItemRevisionLevel1AndBase~|ReportField=ItemRevisionLevel2AndLevel1~
+1|Proant2400|Onboard SMD 2400 MHz Antenna for BLE, WLAN/Wifi|Proant2400|A1|1|
+2||Battery Holder WA-BCPH, Battery Type: 2450p|79578211|B1, B2|2|Wurth Elektronik
+3|4.7µF|Capacitor, X5R, ±10%|CAPC1608X06L|C1, C2, C4, C11, C31|5|
+4|100 uF|WCAP-PSHP Aluminum Polymer Capacitors, D10mm x L8.7mm, 100 uF, 25 VDC|WCAP-PSHP_D10mm x L8.7mm|C3|1|Wurth Elektronik
+5|12pF|Capacitor, NP0, ±2%|CAPC1005X04L|C5, C6, C7, C8|4|
+6|6pF|Capacitor, NP0, ±2%|CAPC1005X04L|C9, C13|2|
+7|100n|Capacitor, NP0, ±2%|CAPC1005X04L|C10, C12, C19, C20, C21, C22, C23, C24, C25, C26, C27, C28, C29|13|
+8|100pF|Capacitor, NP0, ±2%|CAPC1005X04L|C14, C15|2|
+9|TBD|Capacitor, NP0, ±2%|CAPC1005X04L|C16, C17, C18|3|
+10|100p|Capacitor|CAPC1005X04L|C30|1|
+11|1n|Capacitor|CAPC1005X04L|C32|1|Nijkerk Elektronics
+12|CRS08|CRS08 Schottky Diode|SOD-123F|D1, D2, D12|3|
+13|SK6812mini|RGB LED with integrated controller|SK6812mini|D3, D4, D5, D6, D7, D8, D9, D10, D11|9|
+14|1848642|Plug component, Push-in spring connection|Phoenix 1848642|J1|1|
+15|M40-310054R|Harwin connector 2Rows x 6 contacts M40-3100545R|Harwin connector|J2|1|
+16|TBD|TBD||J3|1|
+17|6.8 uH|WE-MAPI SMD Shielded Power Inductor, size 3015, 1.1 A, 6.8 uH|WE-MAPI_3015|L1|1|Wurth Elektronik
+18|15nH|High frequency chip inductor ±10%|INDC1005X04L|L2|1|
+19|10µH|Chip inductor, IDC,min = 50 mA, ±20%|INDC1608X06L|L3|1|
+20|TBD|High frequency chip inductor ±10%|INDC1005X04L|L4, L5|2|
+21|NSL-19M51|Light Dependant Resistor Phot|LDR|LDR1|1|
+22|BC850CLT1G|NPN general purpose transistor|SOT23|Q1|1|
+23|10k|SMD Resistor|RESC1608X55X30NL10T20_B|R1, R7, R8|3|MyProto - DVC
+24||SMD Resistor|RESC1005X35X20NL05T10|R2, R10|2|
+25|3M3|SMD Resistor|RESC1608X55X30NL10T20_B|R3, R4, R9|3|
+26|100k|SMD Resistor|RESC1608X55X30NL10T20_B|R5, R6|2|
+27|SQ-MIN-200|Nano Power Tilt and Vibration sensor||S1|1|
+28||Boost Voltage Converter with 0.9 to 6.5 V Input and 1.8 to 5.5 V Output, -40 to 85 degC, 10-Pin SON (DRC), Green (RoHS & no Sb/Br)|DRC10-2400X1650TP|U1|1|
+29|nRF52832-QFAA|Multi-protocol Bluetooth Low Energy, ANT and 2.4GHz proprietary system-on-chip|QFN40P600X600X90-48N|U2|1|Nordic Semiconductor
+30|KXG1205|Piezo Buzzer|Buzzer|U3|1|
+31|TH06|I2C Humidity and Temperature Sensor module||U4|1|
+32|32MHz|XTAL SMD 2016, 32MHz, Cl=8pF, Total Tol: ±40ppm|BT-XTAL_2016|X1|1|
+33|32.768kHz|XTAL SMD 3215, 32.768kHz, Cl=9pF, Total Tol: ±50ppm|XTAL_3215|X2|1|NDK

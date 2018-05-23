@@ -1,0 +1,51 @@
+To do: 28-02-2018:
+//	Create Altium project
+//	Create schematic sheet with Ideetron Logo
+//	Add SCH and PCB library for this project. Add SCH & PCB file to project
+-	Add rules to project: 
+
+SCHEMATIC:
+-	Add schematic symbols for the following parts:
+	//	Resistors, 
+	//	SMD capacitors, 
+	//	Elco Wurth,
+	//	SMD inductors nRF52832, 
+	//	Diode,
+	//	nRF52832 QFN,
+	//	Quartz crystal, 
+	//	32 MHz oscillator,
+	//	Antenna,
+	//	TPS61025 Boost converter,
+	//	TH06,
+	//	SK6812mini,
+	//	SQ-MIN-200 vibration sensor,
+	//	Piezo Buzzer,
+	//	Piezo buzzer driver Transistor?
+	-	Push Button(s)/ connector, To be defined by metafas
+	//	LDR,
+	//	Fiducials,
+	//	Battery holder,
+	//	Harwin Programming connector, 
+	//	external Phoenix connector
+	-	Mounting holes
+	//	Test pads
+
+
+PCB DESIGN:
+-	Create footprints for components,
+-	Import components,
+-	Create board outline,
+-	PCB stack-up,
+
+
+PRODUCTION:
+-	Create Bill of Materials,
+-	Create PDF schematic, PCB outline drawings, etc.
+-	Create ODB outputs/gerbers
+
+
+
+
+
+
+

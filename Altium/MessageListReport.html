@@ -1,0 +1,366 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 { 
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body { 
+			font-family : segoe ui;
+		}
+
+		td, th {  
+			padding: 0.5em;
+			text-align : left;
+		}
+		th { 
+			background-color : #EEEEEE;
+		
+		}
+		th.column1, td.column1 { 
+			width : 50%; 
+		}
+
+        th.column2, td.column2 {
+            width : 25%;
+        }
+
+		table { 
+			width : 100%; 
+            font-size: 0.9em;
+		}
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 5em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error { 
+			color : red;
+			font-weight : bold;
+		}	
+		tr.onmouseout_odd { 
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+			
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);		
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {	
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}	
+	</script><title>Message List</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD17\Templates\AD_logo.png
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Message List</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">8-3-2018</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">16:37:43</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+</table><a name="ID2NNO0SFOFAPLG4OW0J31AL4BSJKJZF2SSWWXSHGUCK5OHVNC3VB"><table>
+<tr>
+<th class="column1">Class</th>
+<th class="column2">Document</th>
+<th class="column3">Source</th>
+<th class="column4">Message</th>
+<th class="column5">Time</th>
+<th class="column6">Date</th>
+<th class="column7">No.</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648">[Warning]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648">Adding items to hidden net GND</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725179648">1</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">[Warning]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">NetU2_28 contains IO Pin and Output Port objects (Port TPS_EN)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">2</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">[Warning]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">VIBRATION contains IO Pin and Input Port objects (Port VIBRATION)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">3</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688">Net 3V3_SW has only one pin (Pin D2-A)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198688">4</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080">Net BUTTON1 has only one pin (Pin U2-16)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206080">5</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632">Net BUTTON2 has only one pin (Pin U2-17)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725205632">6</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960">Net BUTTON3 has only one pin (Pin U2-18)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204960">7</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512">Net BUZZER has only one pin (Pin U2-19)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725204512">8</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840">Net DIN has only one pin (Pin U2-20)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203840">9</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776">Net NetU2_5 has only one pin (Pin U2-5)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195776">10</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552">Net NetU2_6 has only one pin (Pin U2-6)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725195552">11</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">Net NetU2_28 has only one pin (Pin U2-28)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181888">12</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664">Net NetU2_29 has only one pin (Pin U2-29)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725181664">13</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168">Net P0.27 has only one pin (Pin U2-39)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725203168">14</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304">Net SCK has only one pin (Pin U2-15)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725206304">15</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200">Net SDA has only one pin (Pin U2-14)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725207200">16</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464">Net VBAT has only one pin (Pin D1-A)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725198464">17</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:10,2564102564103%" class="column1"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">[Error]</acronym></a></td>
+<td style="width:11,965811965812%" class="column2"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">sheet3_nRF52832.SchDoc</acronym></a></td>
+<td style="width:5,98290598290598%" class="column3"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">Compiler</acronym></a></td>
+<td style="width:51,2820512820513%" class="column4"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">Net VIBRATION has only one pin (Pin U2-4)</acronym></a></td>
+<td style="width:8,54700854700855%" class="column5"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">16:37:37</acronym></a></td>
+<td style="width:8,54700854700855%" class="column6"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">8-3-2018</acronym></a></td>
+<td style="width:3,41880341880342%" class="column7"><a href="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224" class="callback"><acronym title="dxpprocess://WorkspaceManager:View?document=D:\localrep\WoTs_Proximo_hardware\Altium\sheet3_nRF52832.SchDoc;viewname=SchGraphicalEditor;CrossProbeConnective=1725196224">18</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
