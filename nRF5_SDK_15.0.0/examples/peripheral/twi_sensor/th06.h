@@ -2,7 +2,6 @@
 #define TH06_H
 
 #include <stdint.h>
-#include "nrf_twi_mngr.h"
 
 //    extern uint8_t NRF_TWI_MNGR_BUFFER_LOC_IND th06_write_user_reg1;
 
@@ -14,11 +13,6 @@
     #define THO6_I2C_ADDRESS (0x80U>>1)
     #define TH06_RSVD_MASK   0b00111010 // bit mask for the temperature user register 1
 
-    extern uint8_t NRF_TWI_MNGR_BUFFER_LOC_IND th06_write_user_reg1;
-
-    #define TH06_READ(p_reg_addr, p_buffer, byte_cnt)                                   \
-      NRF_TWI_MNGR_WRITE(THO6_I2C_ADDRESS, p_reg_addr, 1,        NRF_TWI_MNGR_NO_STOP), \
-      NRF_TWI_MNGR_READ (THO6_I2C_ADDRESS, p_buffer,   byte_cnt, 0)
 
     /******************************************************************************************
                                         TYPE DEFINITIONs
@@ -78,10 +72,6 @@
         unsigned int        Timeout;
     }TH06_DATA;
 
-
-//   #define MMA7660_READ(p_reg_addr, p_buffer, byte_cnt) \
-//    NRF_TWI_MNGR_WRITE(MMA7660_ADDR, p_reg_addr, 1,        NRF_TWI_MNGR_NO_STOP), \
-//    NRF_TWI_MNGR_READ (MMA7660_ADDR, p_buffer,   byte_cnt, 0)
 
     /*
      *  FUNCTION PROTOTYPES

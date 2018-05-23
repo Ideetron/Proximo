@@ -4,6 +4,8 @@
   <BookmarkItem objectName="" line="39" column="-1" path="D:/localrep/Proximo/nRF5_SDK_15.0.0/components/boards/boards.c" number="1" extra="#include &quot;boards.h&quot;" color="5"/>
  </Bookmarks>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
+  <BreakpointListItem trigger="" line="1345" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="main.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="1362" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="main.c" useHWbreakpoint="false"/>
   <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
@@ -31,6 +33,7 @@
   <ProjectSessionItem path="Proximo;Proximo;nRF_Drivers"/>
   <ProjectSessionItem path="Proximo;Proximo;nRF_Libraries"/>
   <ProjectSessionItem path="Proximo;Proximo;nRF_Log"/>
+  <ProjectSessionItem path="Proximo;Proximo;System Files"/>
  </Project>
  <Register1>
   <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="Proximo" decimalNodes="" octalNodes="" unsignedNodes=""/>
@@ -51,6 +54,7 @@
   <Watches active="1" update="Never">
    <Watchpoint numelements="0" expression="err" evalMode="0" name="err" radix="16" linenumber="55" filename="sk6812.c" list=""/>
    <Watchpoint numelements="0" expression="event_type" evalMode="0" name="event_type" radix="-1" linenumber="12" filename="sk6812.c" list=""/>
+   <Watchpoint numelements="0" expression="measureTemperature" evalMode="0" name="measureTemperature" radix="16" linenumber="1359" filename="main.c" list=""/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -63,19 +67,21 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1048" useTextEdit="1" useBinaryEdit="0" left="0" path="main.c" debugPath="main.c" selected="0" top="945" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1354" useTextEdit="1" useBinaryEdit="0" left="0" path="main.c" debugPath="main.c" selected="1" top="1334" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="8" useTextEdit="1" useBinaryEdit="0" left="0" path="sk6812.c" debugPath="sk6812.c" selected="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="28" useTextEdit="1" useBinaryEdit="0" left="0" path="sk6812.h" debugPath="sk6812.h" selected="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1538" useTextEdit="1" useBinaryEdit="0" left="0" path="config/sdk_config.h" debugPath="config/sdk_config.h" selected="0" top="1511" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="58" y="42" useTextEdit="1" useBinaryEdit="0" left="0" path="Board/proximo_board.h" debugPath="Board/proximo_board.h" selected="1" top="17" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="41" useTextEdit="1" useBinaryEdit="0" left="0" path="Board/proximo_board.c" debugPath="Board/proximo_board.c" selected="0" top="21" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="80" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/libraries/util/app_error.c" debugPath="../nRF5_SDK_15.0.0/components/libraries/util/app_error.c" selected="0" top="65" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="34" useTextEdit="1" useBinaryEdit="0" left="0" path="Board/proximo_board.h" debugPath="Board/proximo_board.h" selected="0" top="20" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="25" useTextEdit="1" useBinaryEdit="0" left="0" path="Board/proximo_board.c" debugPath="Board/proximo_board.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="121" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/libraries/util/app_error.c" debugPath="../nRF5_SDK_15.0.0/components/libraries/util/app_error.c" selected="0" top="95" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="34" useTextEdit="1" useBinaryEdit="0" left="0" path="buzzer.c" debugPath="buzzer.c" selected="0" top="8" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="18" useTextEdit="1" useBinaryEdit="0" left="0" path="buzzer.h" debugPath="buzzer.h" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="731" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/libraries/experimental_log/src/nrf_log_frontend.c" debugPath="../nRF5_SDK_15.0.0/components/libraries/experimental_log/src/nrf_log_frontend.c" selected="0" top="705" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="58" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/libraries/bsp/bsp_btn_ble.c" debugPath="../nRF5_SDK_15.0.0/components/libraries/bsp/bsp_btn_ble.c" selected="0" top="23" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="610" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/libraries/bsp/bsp.c" debugPath="../nRF5_SDK_15.0.0/components/libraries/bsp/bsp.c" selected="0" top="593" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="455" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_soc.h" debugPath="../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_soc.h" selected="0" top="439" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="924" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/libraries/experimental_log/src/nrf_log_frontend.c" debugPath="../nRF5_SDK_15.0.0/components/libraries/experimental_log/src/nrf_log_frontend.c" selected="0" top="904" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="112" useTextEdit="1" useBinaryEdit="0" left="0" path="th06.c" debugPath="th06.c" selected="0" top="92" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="62" useTextEdit="1" useBinaryEdit="0" left="0" path="th06.h" debugPath="th06.h" selected="0" top="33" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="39" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/modules/nrfx/mdk/ses_nrf52_Vectors.s" debugPath="../nRF5_SDK_15.0.0/modules/nrfx/mdk/ses_nrf52_Vectors.s" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="312" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_sdm.h" debugPath="../nRF5_SDK_15.0.0/components/softdevice/s132/headers/nrf_sdm.h" selected="0" top="286" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="86" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_15.0.0/components/libraries/experimental_section_vars/nrf_section_iter.c" debugPath="../nRF5_SDK_15.0.0/components/libraries/experimental_section_vars/nrf_section_iter.c" selected="0" top="66" codecName="Default"/>
  </Files>
- <ARMCrossStudioWindow activeProject="Proximo" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" debugSearchFileMap="" fileDialogInitialDirectory="E:/Proximo_nRF/Proximo_nRF" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <ARMCrossStudioWindow activeProject="Proximo" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" debugSearchFileMap="" fileDialogInitialDirectory="D:/localrep/Proximo/nRF5_SDK_15.0.0/integration/nrfx/legacy" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>

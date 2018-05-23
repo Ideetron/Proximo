@@ -55,36 +55,13 @@
         HEATER_OFF = 0x00U
     }HEATERe;
 
-    typedef enum 
-    {
-        TH06_INIT,
-        TH06_WRITE_SETTINGS,
-        TH06_IDLE,
-        TH06_CONVERSION_START,
-        TH06_WAIT_FOR_CONVERSION_COMPLETE,
-        TH06_READ_HUMIDITY,
-        TH06_READ_TEMPERATURE,
-        TH06_COMPLETE,
-        TH06_ERROR
-    }TH06_STATEMACHINE;
 
-
-    /* Structure for the temperature and humidity results. */
-    typedef struct
-    {
-        TH06_STATEMACHINE   State;
-        double              Temperature;
-        double              Humidity;
-        unsigned int        Timeout;
-    }TH06_DATA;
-
-
-//   #define MMA7660_READ(p_reg_addr, p_buffer, byte_cnt) \
-//    NRF_TWI_MNGR_WRITE(MMA7660_ADDR, p_reg_addr, 1,        NRF_TWI_MNGR_NO_STOP), \
-//    NRF_TWI_MNGR_READ (MMA7660_ADDR, p_buffer,   byte_cnt, 0)
 
     /*
      *  FUNCTION PROTOTYPES
      */
+     void twi_init          (void);
+     void th06_init         (void);
+     void read_temperature  (void);
     
 #endif

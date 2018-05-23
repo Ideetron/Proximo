@@ -87,6 +87,7 @@
 #include "nrf_delay.h"
 #include "sk6812.h"
 #include "buzzer.h"
+#include "th06.h"
 
 
 
@@ -157,6 +158,7 @@ static uint8_t          m_zero_samples_to_ignore = 0;
 static uint16_t         m_sample_value_to_send;
 static uint16_t         m_sample_value_expected;
 static bool             m_error_encountered;
+static volatile bool    measureTemperature = false;
 
 static uint32_t       * volatile mp_block_to_fill  = NULL;
 static uint32_t const * volatile mp_block_to_check = NULL;
@@ -220,9 +222,10 @@ static void rtc_handler(nrf_drv_rtc_int_type_t int_type)
       APP_ERROR_CHECK(err_code);
       nrf_drv_rtc_counter_clear(&rtc);
       nrf_gpio_pin_toggle(ALARM_OUT_PIN);
+      measureTemperature = true;
 
       // print and the clear the number of movement pulses counted
-      NRF_LOG_INFO("Movement count: %u\n", movementCount);
+      NRF_LOG_INFO("Movement count: %u", movementCount);
       movementCount = 0;
   }
   else if (int_type == NRF_DRV_RTC_INT_TICK)
@@ -948,6 +951,7 @@ void bsp_event_handler(bsp_event_t event)
             NRF_LOG_INFO("Button 1");
             sk6812(SK6812_RED);
             Buzz(75);
+            measureTemperature = true;
             break;
 
         //  Button 2 - Blue.
@@ -955,6 +959,7 @@ void bsp_event_handler(bsp_event_t event)
             NRF_LOG_INFO("Button 2");
             sk6812(SK6812_BLUE);
             Buzz(50);
+            measureTemperature = true;
             break;
 
         //  Button 3 - Green
@@ -962,6 +967,7 @@ void bsp_event_handler(bsp_event_t event)
             NRF_LOG_INFO("Button 3");
             sk6812(SK6812_GREEN);
             Buzz(25);
+            measureTemperature = true;
             break;
 
         case BSP_EVENT_SLEEP:
@@ -1318,7 +1324,7 @@ int main(void)
     timers_init();
     buttons_init(&erase_bonds);
     proximo_io_init();
-    proximo_tps_on();
+    
     rtc_config();
     movement_init(&movement_event_handler);
     power_management_init();
@@ -1334,17 +1340,26 @@ int main(void)
     // Start execution.
     NRF_LOG_INFO("Proximo Application started.");
     NRF_LOG_FLUSH();
+    twi_init();
+    th06_init();
     application_timers_start();
     advertising_start(true);
 
-
+    proximo_tps_on();
+    nrf_delay_ms(100);
     sk6812(SK6812_BLUE);
+    read_temperature();
 
     // Enter main loop.
     for (;;)
     {
-      NRF_LOG_FLUSH();
-      power_management_init();
+        NRF_LOG_FLUSH();
+        if(measureTemperature == true)
+        {
+            measureTemperature = false;
+            read_temperature();
+        }
+        power_management_init();
     }
 }
 

@@ -8,10 +8,18 @@
  <FrameBufferWindow>
   <FrameBufferWindow bufferHeight="-1" addressSpace="" addressText="" bufferWidth="-1"/>
  </FrameBufferWindow>
- <Memory1/>
- <Memory2/>
- <Memory3/>
- <Memory4/>
+ <Memory1>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="twi_master_using_nrf_twi_mngr_pca10040" radix="16" sizeText="" addressText=""/>
+ </Memory1>
+ <Memory2>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="twi_master_using_nrf_twi_mngr_pca10040" radix="16" sizeText="" addressText=""/>
+ </Memory2>
+ <Memory3>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="twi_master_using_nrf_twi_mngr_pca10040" radix="16" sizeText="" addressText=""/>
+ </Memory3>
+ <Memory4>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="twi_master_using_nrf_twi_mngr_pca10040" radix="16" sizeText="" addressText=""/>
+ </Memory4>
  <Project>
   <ProjectSessionItem path="twi_master_using_nrf_twi_mngr_pca10040"/>
   <ProjectSessionItem path="twi_master_using_nrf_twi_mngr_pca10040;twi_master_using_nrf_twi_mngr_pca10040"/>
@@ -20,10 +28,18 @@
   <ProjectSessionItem path="twi_master_using_nrf_twi_mngr_pca10040;twi_master_using_nrf_twi_mngr_pca10040;Board Support"/>
   <ProjectSessionItem path="twi_master_using_nrf_twi_mngr_pca10040;twi_master_using_nrf_twi_mngr_pca10040;nRF_Libraries"/>
  </Project>
- <Register1/>
- <Register2/>
- <Register3/>
- <Register4/>
+ <Register1>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="twi_master_using_nrf_twi_mngr_pca10040" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register1>
+ <Register2>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="twi_master_using_nrf_twi_mngr_pca10040" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register2>
+ <Register3>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="twi_master_using_nrf_twi_mngr_pca10040" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register3>
+ <Register4>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="twi_master_using_nrf_twi_mngr_pca10040" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register4>
  <TraceWindow>
   <Trace enabled="Yes"/>
  </TraceWindow>
@@ -40,17 +56,17 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="427" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" debugPath="../../../main.c" selected="0" top="401" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="53" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../lm75b.c" debugPath="../../../lm75b.c" selected="0" top="8" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="16" y="53" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../mma7660.c" debugPath="../../../mma7660.c" selected="0" top="24" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="71" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../lm75b.h" debugPath="../../../lm75b.h" selected="0" top="35" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="56" y="10" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../th06.c" debugPath="../../../th06.c" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="60" y="21" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../th06.h" debugPath="../../../th06.h" selected="1" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="44" y="129" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/twi_mngr/nrf_twi_mngr.h" debugPath="../../../../../../components/libraries/twi_mngr/nrf_twi_mngr.h" selected="0" top="129" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="13" y="511" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" debugPath="../../../main.c" selected="1" top="465" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="30" y="62" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../lm75b.c" debugPath="../../../lm75b.c" selected="0" top="41" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="53" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../mma7660.c" debugPath="../../../mma7660.c" selected="0" top="24" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="33" y="72" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../lm75b.h" debugPath="../../../lm75b.h" selected="0" top="53" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="23" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../th06.c" debugPath="../../../th06.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="18" y="67" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../th06.h" debugPath="../../../th06.h" selected="0" top="54" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="47" y="103" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/twi_mngr/nrf_twi_mngr.h" debugPath="../../../../../../components/libraries/twi_mngr/nrf_twi_mngr.h" selected="0" top="87" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="90" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../mma7660.h" debugPath="../../../mma7660.h" selected="0" top="67" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="28" y="71" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../components/boards/boards.h" debugPath="../../../../../../components/boards/boards.h" selected="0" top="50" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="332" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/twi_mngr/nrf_twi_mngr.c" debugPath="../../../../../../components/libraries/twi_mngr/nrf_twi_mngr.c" selected="0" top="301" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="78" y="9" useTextEdit="1" useBinaryEdit="0" left="0" path="th06.c" debugPath="th06.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="71" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../components/boards/boards.h" debugPath="../../../../../../components/boards/boards.h" selected="0" top="50" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="332" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/twi_mngr/nrf_twi_mngr.c" debugPath="../../../../../../components/libraries/twi_mngr/nrf_twi_mngr.c" selected="0" top="40" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="395" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h" debugPath="../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h" selected="0" top="379" codecName=""/>
  </Files>
- <ARMCrossStudioWindow activeProject="twi_master_using_nrf_twi_mngr_pca10040" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Release" debugSearchFileMap="" fileDialogInitialDirectory="D:/localrep/Proximo/Proximo_app/Board" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <ARMCrossStudioWindow activeProject="twi_master_using_nrf_twi_mngr_pca10040" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Release" debugSearchFileMap="" fileDialogInitialDirectory="D:/localrep/Proximo/Proximo_app/Board" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

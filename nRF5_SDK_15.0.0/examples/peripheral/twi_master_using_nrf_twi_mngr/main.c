@@ -70,9 +70,11 @@
 
 #define MAX_PENDING_TRANSACTIONS    5
 
- 
+#define TPS_EN_PIN       24 //  Boost converter enable pin
 #define I2C_SCL_PIN      11 //  I2C Serial Clock Line  
 #define I2C_SDA_PIN      12 //  I2C Serial Data
+
+static TH06_DATA th06;
 
 NRF_TWI_MNGR_DEF(m_nrf_twi_mngr, MAX_PENDING_TRANSACTIONS, TWI_INSTANCE_ID);
 APP_TIMER_DEF(m_timer);
@@ -336,7 +338,7 @@ static void lfclk_config(void)
 
 void timer_handler(void * p_context)
 {
-    read_all();
+    //read_all();
 }
 
 void read_init(void)
@@ -396,23 +398,55 @@ static void read_mma7660_registers(void)
 
 static void th06_init_cb(ret_code_t result, void * p_user_data)
 {
+    TH06_DATA * th06;
+    static nrf_twi_mngr_transfer_t transfers[2];
+
     if (result != NRF_SUCCESS)
     {
         NRF_LOG_WARNING("read_th06_registers_cb - error: %02X", (int)result);
         return;
     }
+    
+    if(p_user_data == NULL)
+    {
+        return;
+    }
+    
+    th06 = (TH06_DATA *) p_user_data;
 
-    NRF_LOG_DEBUG("TH06:");
-    NRF_LOG_HEXDUMP_DEBUG(m_buffer, 1);
+    switch(th06->State)
+    {
+        case TH06_INIT:
+          NRF_LOG_INFO("TH06:");
+          NRF_LOG_HEXDUMP_INFO(m_buffer, 1);
+
+          //  Mask the reserved bits of the TH06 and configure the TH06 settings.
+          m_buffer[0] &= TH06_RSVD_MASK;
+          m_buffer[0] = RES_RH12_Temp14 | HEATER_OFF;
+          m_buffer[1] = m_buffer[0];
+          m_buffer[0] = th06_write_user_reg1;
+
+          transfers[0].operation = NRF_TWI_MNGR_WRITE_OP(THO6_I2C_ADDRESS);
+          transfers[0].p_data = &th06_write_user_reg1;
+          transfers[0].length = 2;
+          transfers[0].flags  = NULL;
+
+          //  Send the new settings to the TH06
+          APP_ERROR_CHECK(nrf_twi_mngr_schedule(&m_nrf_twi_mngr, &transaction));
+
+          th06->State = TH06_WRITE_SETTINGS;
+          break;
+
+        case TH06_WRITE_SETTINGS:
+          th06->State = TH06_WRITE_SETTINGS;
+          break;
+
+        default:
+          break;
+    }
 }
 
 
-//  #define TH06_READ(p_reg_addr, p_buffer, byte_cnt) \
-//    NRF_TWI_MNGR_WRITE(THO6_I2C_ADDRESS, p_reg_addr, 1,        NRF_TWI_MNGR_NO_STOP), \
-//    NRF_TWI_MNGR_READ (THO6_I2C_ADDRESS, p_buffer,   byte_cnt, 0)
-//  #define TH06_READ(p_reg_addr, p_buffer, byte_cnt) \
-//    NRF_TWI_MNGR_WRITE(MMA7660_ADDR, p_reg_addr, 1,        NRF_TWI_MNGR_NO_STOP), \
-//    NRF_TWI_MNGR_READ (MMA7660_ADDR, p_buffer,   byte_cnt, 0)
 
 static void th06_init(void)
 {
@@ -422,13 +456,13 @@ static void th06_init(void)
     //  will be referred after this function returns]
     static nrf_twi_mngr_transfer_t const transfers[] =
     {
-        TH06_READ(&th06_write_user_reg1,  &m_buffer[0], 1) // MMA7660_READ TH06_READ
+        TH06_READ(&th06_write_user_reg1,  &m_buffer[0], 1)
     };
 
     static nrf_twi_mngr_transaction_t NRF_TWI_MNGR_BUFFER_LOC_IND transaction =
     {
         .callback            = th06_init_cb,
-        .p_user_data         = NULL,
+        .p_user_data         = (void *)&th06,
         .p_transfers         = transfers,
         .number_of_transfers = sizeof(transfers) / sizeof(transfers[0])
     };
@@ -440,6 +474,10 @@ static void th06_init(void)
 int main(void)
 {
     ret_code_t err_code;
+
+    //  Boost converter enable pin
+    nrf_gpio_cfg_output(TPS_EN_PIN);
+    nrf_gpio_pin_write(TPS_EN_PIN, 0);
 
     log_init();
     bsp_board_init(BSP_INIT_LEDS);
@@ -454,14 +492,13 @@ int main(void)
     err_code = nrf_pwr_mgmt_init();
     APP_ERROR_CHECK(err_code);
 
-    NRF_LOG_RAW_INFO("\r\nTWI master example started. \r\n");
+    NRF_LOG_RAW_INFO("TWI master example started. \r\n");
     NRF_LOG_FLUSH();
     twi_config();
 
     read_init();
 
     // Initialize sensors.
-//    APP_ERROR_CHECK(nrf_twi_mngr_perform(&m_nrf_twi_mngr, NULL, th06_init_transfers, 1, th06_statemachine));
     th06_init();
 
     while (true)
